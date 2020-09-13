@@ -22,3 +22,66 @@
 @import "datatables.net-responsive-bs4/css/responsive.bootstrap4.css";
 @import "datatables.net-select-bs4/css/select.bootstrap4.css";
 @import "bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css";
+
+.jumbotron {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding: 0.1rem;
+  margin-bottom: 1rem;
+}
+
+/* dropdown css */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.308);
+  list-style: none;
+  padding: 5px 0;
+  margin: 2px 0 0 0;
+  > li > a {
+      display: block;
+      color: #333;
+      white-space: nowrap;
+      text-decoration: none;
+      padding: 3px 20px;
+      &:hover {
+          color: rgb(0, 0, 0);
+          background-color: #37e23cb4;
+      }
+  }
+}
+
+.open > .dropdown-menu {
+  display: block;
+}
+
+.triangle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.dropdown.dropdown-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+/* dropdown css end */

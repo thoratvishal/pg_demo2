@@ -1,42 +1,39 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      br
-      em
-        = @minimum_password_length
-        |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+.container.vertical-center
+  .h5
+    |
+  .shadow-sm.bg-white.rounded
+    .jumbotron
+      .h5
+        | @ Edit Profile
+  .sm-white.rounded
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+      .form-inputs
+        .form-group
+          = f.label :email
+          br
+          = f.email_field :email, class: 'form-control', required: true, autofocus: true
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            p
+              | Currently waiting confirmation for: 
+              = resource.unconfirmed_email
+        .form-group
+          = f.label :New_password
+          br 
+          = f.password_field :password, placeholder: 'New password', class: 'form-control', hint: "leave it blank if you don't want to change it", required: false, input_html: { autocomplete: "new-password" }
+        .form-group
+          = f.label :confirm_password
+          br 
+          = f.password_field :password_confirmation, placeholder: 'Repeat password', class: 'form-control', required: false, input_html: { autocomplete: "new-password" }
+        .form-group
+          = f.label :Old_password
+          br 
+          = f.password_field :current_password, placeholder: 'Enter old password', class: 'form-control', hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password" }
+      .form-actions
+        = f.submit 'Update profile', class: 'btn btn-info'
+    h3
+      | Cancel my account
+    p
+      | Unhappy? 
+      = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+    = link_to "Back", :back
