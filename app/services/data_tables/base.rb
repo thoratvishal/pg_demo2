@@ -1,6 +1,6 @@
 module DataTables
   class Base
-    include CallsHelper
+    include RtosHelper
     include Rails.application.routes.url_helpers
     include ActionView::Helpers::TagHelper
     include ActionView::Context

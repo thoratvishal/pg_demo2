@@ -1,0 +1,14 @@
+.container.mb-5.mt-3
+  .row.mb-4
+    .col-md-10
+      = link_to 'New Rto',new_rto_path, class: "button btn btn-success btn"
+  .table-responsive
+    table.table#rto_table style="width: 100%;text-align:center"
+      thead
+        tr
+          th Name
+          th Location
+          th City
+          th State
+          th Address
+          th Actions

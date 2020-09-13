@@ -1,0 +1,23 @@
+.container-fluid.mt-2.mb-2
+  = simple_form_for model, defaults: {input_html: {class:'form-control'}} do |f|
+    h3 New Rto
+    hr
+    .row
+      .form-group.col-md-4
+        label Name
+        = f.input :name, label: false
+      .form-group.col-md-4
+        label Location
+        = f.input :location, label: false
+      .form-group.col-md-4
+        label City
+        = f.input :city, label: false
+    .row
+      .form-group.col-md-4
+        label State
+        = f.input :state, label: false
+      .form-group.col-md-4
+        label Address
+        = f.input :address, label: false
+    = f.submit 'Submit', class: 'btn btn-success'
+    = link_to '< Back', rtos_path, class: 'btn btn-danger btn-space'

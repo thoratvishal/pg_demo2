@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("call/call")
+require("rto/rto")
 
 import $ from 'jquery';
 global.$ = jQuery;
